@@ -99,15 +99,10 @@ Y_pred = model.predict(X_test)
 target_names = ['Up day', 'Down day']
 report = classification_report(y_true=Y_test, y_pred=Y_pred,target_names=target_names , output_dict=True)
 report = pd.DataFrame(report).transpose()
-print(report)
-
-# disp = plot_confusion_matrix(model, X_test, Y_test, display_labels = ['Down Day', 'Up Day'], normalize = 'true', cmap=plt.cm.Blues)
-# disp.ax_.set_title('Confusion Matrix - Normalized')
-# plt.show()
-
 
 cm = confusion_matrix(Y_test, Y_pred)
 
+print(report)
 fig = ff.create_annotated_heatmap(z=cm, x=['D Day', 'U Day'], y=['Up Day', 'Down Day'])
 fig.update_layout(title_text='Confusion Matrix')
 fig.show()
