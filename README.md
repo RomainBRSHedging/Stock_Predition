@@ -1,1 +1,1 @@
-# Stock_Predition
+# Stock Movement Prediction
