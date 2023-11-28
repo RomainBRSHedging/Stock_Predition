@@ -80,11 +80,11 @@ df.loc[df['Prediction']== 0] = 1
 df = df.dropna()
 
     #Build the Model: Random Forest
-X_col = df[['RSI', 'Sto_O', 'W_R', 'MACD', 'MACD_EMA', 'PROC']]
-Y_col = df['Prediction']
-# X_col = X_col.reset_index(drop=True)
-# Y_col = Y_col.reset_index(drop=True)
-X_train, X_test, Y_train, Y_test = train_test_split(X_col, Y_col ,random_state=40)
+X = df[['RSI', 'Sto_O', 'W_R', 'MACD', 'MACD_EMA', 'PROC']]
+Y = df['Prediction']
+# X = X.reset_index(drop=True)
+# Y = Y.reset_index(drop=True)
+X_train, X_test, Y_train, Y_test = train_test_split(X, Y ,random_state=40)
 
     #Model
 model = RandomForestClassifier(n_estimators=200, oob_score=True, criterion='gini', random_state=40)
