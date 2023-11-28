@@ -106,8 +106,6 @@ print(report)
 # plt.show()
 
 
-# Your code here to get Y_true and Y_pred
-
 cm = confusion_matrix(Y_test, Y_pred)
 
 fig = ff.create_annotated_heatmap(z=cm, x=['D Day', 'U Day'], y=['Up Day', 'Down Day'])
