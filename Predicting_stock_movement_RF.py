@@ -32,7 +32,7 @@ down_df = down_df.abs()
 ######Indicators########
 n = 14
 
-    #EWMA 1)
+    # 1) Relative Strength Index/Exponential Weighted Moving Average
 ewma_up = up_df.transform((lambda x: x.ewm(span = n).mean()))
 ewma_down = down_df.transform((lambda x: x.ewm(span = n).mean()))
 RS = ewma_up/ewma_down
@@ -42,7 +42,7 @@ df['Down_days'] = down_df
 df['Up_days'] = up_df
 df['RSI'] = RSI
 
-    #Sto O 2)
+    # 2) Stochastique Oscillator
 low_14, high_14 = df['Low'].copy(), df['High'].copy()
 low_14 = low_14.transform(lambda x: x.rolling(window = n).min())
 high_14 = high_14.transform(lambda x: x.rolling(window = n).max())
@@ -52,11 +52,11 @@ df['Low_14'] = low_14
 df['High_14'] = high_14
 df['Sto_O'] = Sto_O
 
-    #W R 3)
+    # 3) William % R 
 R = (high_14 - df['Close'])/(high_14 - low_14) *-100.0
 df['W_R'] = R
 
-    #MACD 4)
+    # 4) Moving Average Convergence Divergence  
 ema_26 = df['Close'].transform(lambda x: x.ewm(span = 26).mean())
 ema_12 = df['Close'].transform(lambda x: x.ewm(span = 12).mean())
 macd = ema_12 - ema_26
@@ -65,7 +65,7 @@ ema_9_macd = macd.ewm(span = 9).mean()
 df['MACD'] = macd
 df['MACD_EMA'] = ema_9_macd
 
-    #PROC 5)
+    # 5) Price Rate Of Change 
 n_ = 9
 df['PROC'] = df['Close'].transform(lambda x: x.pct_change(periods = n))
 
