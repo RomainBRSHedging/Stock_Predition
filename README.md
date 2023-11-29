@@ -1,1 +1,1 @@
-# Stock Movement Prediction
+# Stock Movement Prediction: Random Forest Classifier
