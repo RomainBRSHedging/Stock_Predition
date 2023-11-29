@@ -71,7 +71,7 @@ df['PROC'] = df['Close'].transform(lambda x: x.pct_change(periods = n))
 
 
 
-#####Model ###### 
+##### Model ###### 
 
     #Prediciton column
 close_groups = df['Close'].transform(lambda x: np.sign(x.diff()))
