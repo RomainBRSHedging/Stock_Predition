@@ -42,7 +42,7 @@ df['Down_days'] = down_df
 df['Up_days'] = up_df
 df['RSI'] = RSI
 
-    # 2) Stochastique Oscillator
+    # 2) Stochastic Oscillator
 low_14, high_14 = df['Low'].copy(), df['High'].copy()
 low_14 = low_14.transform(lambda x: x.rolling(window = n).min())
 high_14 = high_14.transform(lambda x: x.rolling(window = n).max())
