@@ -1,4 +1,4 @@
-# Stock Movement Prediction: 
+# Stock Movement Prediction: short, simple 
 
 1) Random Forest Classifier
 2) Long Short Term Memory (soon)
